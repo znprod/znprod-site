@@ -1,0 +1,62 @@
+.App nav {width: 100%}
+.App nav ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+    display: table;
+    width: 100%;
+    padding-left: 14px;
+}
+.App nav li {
+    z-index:10;
+   /* text-align: center;*/
+    display: table-cell;
+}
+.App nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 0 10px 0;
+    padding-left: 15px;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+   /* text-align: center;*/
+}
+
+.App nav a img {
+    position: relative;
+    top: 2px;
+    left: -5px;
+}
+
+.App .mordy {
+    width: 84%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.App .logo {
+    margin-top: 32px;
+    margin-left: 24px;
+    margin-bottom: 40px;
+}
+
+
+.App .content {
+    padding: 24px;
+}
+
+.App h1 {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 30px;
+    color: #4d4d4d;
+}
+/*.App nav a img {*/
+/*    display: inline;*/
+/*}*/

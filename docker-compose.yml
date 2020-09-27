@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  proxy:
+    build:
+      dockerfile: .docker/proxy.Dockerfile
+      context: .
+    expose:
+      - "80"
+    ports:
+      - "80:80"
+  site-backend:
+    build:
+      dockerfile: .docker/site-backend.Dockerfile
+      context: .
+    entrypoint: /app/entrypoint.sh
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    environment:
+      rss: https://feeds.soundcloud.com/users/soundcloud:users:610582557/sounds.rss
+  site-frontend:
+    build:
+      dockerfile: .docker/site-frontend.Dockerfile
+      context: .
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"

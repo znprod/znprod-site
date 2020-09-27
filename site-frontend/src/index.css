@@ -1,0 +1,23 @@
+body {
+  margin: 0 auto;
+  margin-bottom: 200px;
+  min-height: 1000px;
+  width: 1064px;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+}
+
+html {
+  background: url(./images/fon-bardak.png)
+}
+
+
+
+/*code {*/
+/*  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',*/
+/*    monospace;*/
+/*}*/
