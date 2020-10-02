@@ -1,5 +1,7 @@
-import React, {CSSProperties, useEffect, useState} from 'react';
+import React, {CSSProperties} from 'react';
 import './Feed.css'
+import Linkify from 'react-linkify';
+const nl2br = require('react-nl2br');
 
 type Item = {
     num: string;
@@ -25,7 +27,7 @@ class Feed extends React.Component {
     }
 
     componentDidMount () {
-        fetch( '//api.' + document.location.host + '/api/feed')
+        fetch( 'https://api.znprod.io/api/feed')
             .then(response => response.json())
             .then(response =>  this.setState({
                 items: response,
@@ -54,12 +56,10 @@ class Feed extends React.Component {
 
                     return <div className="episode" style={styles}>
                         <div className="episode-title" key={item.title}>
-                            <a href={item.link} className="label">{item.title}</a>
+                            <a href={item.link} className="label"><span className="title-num">#{item.num} </span>{item.title}</a>
                         </div>
                         <div className="num">{item.num}</div>
-                        <div className="item-content">{item.content.split('\n').map((item, key) => {
-                            return <span key={key}>{item}<br/></span>
-                        })}</div>
+                        <div className="item-content"><Linkify>{nl2br(item.content)}</Linkify></div>
                     </div>
                 })
                 }
