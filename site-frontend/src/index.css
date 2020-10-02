@@ -1,24 +1,29 @@
 body {
-  margin: 0 auto;
-  margin-bottom: 200px;
-  min-height: 90%;
-  width: 1064px;
-  max-width: 100%;
-  font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0 auto;
+    margin-bottom: 200px;
+    min-height: 90%;
+    width: 1064px;
+    max-width: 100%;
+    font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: white;
-  font-size: 25px;
-  padding-bottom: 200px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: white;
+    font-size: 22px;
+    padding-bottom: 200px;
 }
 
 
-html {
-  background: url(./images/fon-bardak.png)
+@media screen and (min-width: 800px) {
+    html {
+        background: url(./images/fon-bardak.png)
+    }
 }
 
+a, a:visited, a:hover {
+    color: rgb(85, 26, 139);
+}
 
 
 /*code {*/

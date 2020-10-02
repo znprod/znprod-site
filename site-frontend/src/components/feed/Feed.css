@@ -6,7 +6,7 @@
         padding-top: 42px;
 
         font-weight: bold;
-        font-size: 24px;
+        font-size: 30px;
         display: block;
 
     }
@@ -63,4 +63,10 @@
         display: none;
     }
 
+    .Feed .episode-title .label {
+        margin-top: 0.5em;
+        display: block;
+        border-left: 10px solid #ee7003;
+        padding-left: 10px;
+    }
 }

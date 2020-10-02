@@ -6,8 +6,8 @@
         width: 200px;
         background-color: #f1f1f1;
         position: absolute;
-        top: 100px;
-        right: 100px;
+        top: 55px;
+        right: 57px;
     }
 
     .App nav  li a {
@@ -85,7 +85,7 @@
     margin-left: 24px;
     margin-bottom: 40px;
     width: 402px;
-    max-width: 69%;
+    max-width: 50%;
 }
 
 
@@ -104,9 +104,10 @@
 
 .App .burger {
     position: absolute;
-    right: 60px;
-    top: 60px;
+    right: 30px;
+    top: 30px;
     display: none;
+    width: 30px;
 }
 
 
