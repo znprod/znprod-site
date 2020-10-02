@@ -25,7 +25,7 @@ class Feed extends React.Component {
     }
 
     componentDidMount () {
-        fetch('/api/feed', {mode: 'cors'})
+        fetch( '//api.' + document.location.host + '/api/feed')
             .then(response => response.json())
             .then(response =>  this.setState({
                 items: response,

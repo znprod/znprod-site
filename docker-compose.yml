@@ -2,13 +2,26 @@ version: '3.4'
 
 services:
   proxy:
-    build:
-      dockerfile: .docker/proxy.Dockerfile
-      context: .
-    expose:
-      - "80"
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
     ports:
-      - "80:80"
+      - 80:80
+      - 443:443
+    volumes:
+      - certs:/etc/nginx/certs
+      - vhost.d:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+  nginx-proxy-letsencrypt:
+    container_name: nginx-proxy-letsencrypt
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - certs:/etc/nginx/certs
+      - vhost.d:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
   site-backend:
     build:
       dockerfile: .docker/site-backend.Dockerfile
@@ -19,12 +32,21 @@ services:
     ports:
       - "3000:3000"
     environment:
-      rss: https://feeds.soundcloud.com/users/soundcloud:users:610582557/sounds.rss
+      - RSS_FEED=https://feeds.soundcloud.com/users/soundcloud:users:610582557/sounds.rss
+      - VIRTUAL_HOST=api.znprod.io
+      - LETSENCRYPT_HOST=api.znprod.io
+      - LETSENCRYPT_EMAIL=znprod@yandex.ru
   site-frontend:
     build:
       dockerfile: .docker/site-frontend.Dockerfile
       context: .
-    expose:
-      - "8080"
     ports:
-      - "8080:8080"
+    - 8080:80
+    environment:
+      - VIRTUAL_HOST=znprod.io
+      - LETSENCRYPT_HOST=znprod.io
+      - LETSENCRYPT_EMAIL=znprod@yandex.ru
+volumes:
+  certs:
+  vhost.d:
+  html:
