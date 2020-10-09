@@ -34,7 +34,7 @@ class Feed extends React.Component {
         //         ],
         //     loading: false,
         // })
-        fetch( 'https://localhost:3000/api/feed')
+        fetch( 'https://api.znprod.io/api/feed')
             .then(response => response.json())
             .then(response =>  this.setState({
                 items: response,
