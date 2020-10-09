@@ -21,13 +21,20 @@ type State = {
 class Feed extends React.Component {
 
     state:State = {
-        items: [],
+        items: [] as Item[],
         loading: true,
         error: false
     }
 
     componentDidMount () {
-        fetch( 'https://api.znprod.io/api/feed')
+        // this.setState({
+        //     items: [
+        //         {num: "099", title: 'Lorem ipsum one two three Lorem ipsum one two three', link: 'http://ya.ru/'},
+        //         {num: "101", title: ' ipsum one two three Lorem ipsum one two three Lorem', link: 'http://ya.ru/'},
+        //         ],
+        //     loading: false,
+        // })
+        fetch( 'https://localhost:3000/api/feed')
             .then(response => response.json())
             .then(response =>  this.setState({
                 items: response,

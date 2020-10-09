@@ -57,6 +57,8 @@
 
     .Feed .episode {
         background: none !important;
+        margin-bottom: 23px;
+        padding-bottom: 0;
     }
 
     .Feed .episode .num {
@@ -66,7 +68,15 @@
     .Feed .episode-title .label {
         margin-top: 0.5em;
         display: block;
-        border-left: 10px solid #ee7003;
-        padding-left: 10px;
+        background-color: #e2e2e2;
+        padding: 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #4d4d4d;
     }
+}
+
+.title-num {
+    font-weight: bold;
+    color: #4d4d4d;
 }
