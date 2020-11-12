@@ -1,82 +1,81 @@
 @media screen and (min-width: 800px) {
-    .Feed .episode-title {
-        background: url("../../images/plashka.png") no-repeat;
-        width: 517px;
-        height: 54px;
-        padding-top: 42px;
+  .Feed .episode-title {
+    background: url('../../images/plashka.png') no-repeat;
+    width: 517px;
+    height: 54px;
+    padding-top: 42px;
 
-        font-weight: bold;
-        font-size: 30px;
-        display: block;
+    font-weight: bold;
+    font-size: 30px;
+    display: block;
+  }
 
-    }
+  .Feed .episode-title .label {
+    display: block;
+    color: #4d4d4d;
+    width: 375px;
+    padding-left: 24px;
+    padding-bottom: 24px;
+    padding-right: 86px;
+    background-color: #ee7003;
+    text-decoration: none;
+  }
 
-    .Feed .episode-title .label {
-        display: block;
-        color: #4d4d4d;
-        width: 375px;
-        padding-left: 24px;
-        padding-bottom: 24px;
-        padding-right: 86px;
-        background-color: #ee7003;
-        text-decoration: none;
-    }
+  .Feed .episode {
+    position: relative;
+    min-height: 500px;
+    word-wrap: break-word;
+  }
 
-    .Feed .episode {
-        position: relative;
-        min-height: 500px;
-        word-wrap: break-word;
-    }
+  .Feed .episode .item-content {
+    padding-left: 530px;
+    padding-bottom: 20px;
+    color: #4d4d4d;
+    position: relative;
+    top: -10px;
+  }
 
-    .Feed .episode .item-content {
-        padding-left: 530px;
-        padding-bottom: 20px;
-        color: #4d4d4d;
-        position: relative;
-        top: -10px;
-    }
+  .Feed .num {
+    position: absolute;
+    left: 406px;
+    top: 38px;
+    font-size: 48px;
+    color: #4d4d4d;
+    font-weight: bold;
+  }
 
-    .Feed .num {
-        position: absolute;
-        left: 406px;
-        top: 38px;
-        font-size: 48px;
-        color: #4d4d4d;
-        font-weight: bold;
-    }
-
-    .Feed .title-num {
-        display: none;
-    }
+  .Feed .title-num {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .Feed .episode .item-content {
-        display: none;
-    }
+  .Feed .episode .item-content {
+    display: none;
+  }
 
-    .Feed .episode {
-        background: none !important;
-        margin-bottom: 23px;
-        padding-bottom: 0;
-    }
+  .Feed .episode {
+    background: none !important;
+    margin-bottom: 23px;
+    padding-bottom: 0;
+  }
 
-    .Feed .episode .num {
-        display: none;
-    }
+  .Feed .episode .num {
+    display: none;
+  }
 
-    .Feed .episode-title .label {
-        margin-top: 0.5em;
-        display: block;
-        background-color: #e2e2e2;
-        padding: 10px;
-        border-radius: 4px;
-        text-decoration: none;
-        color: #4d4d4d;
-    }
+  .Feed .episode-title .label {
+    margin-top: 0.5em;
+    display: block;
+    background-color: #e2e2e2;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #4d4d4d;
+  }
 }
 
 .title-num {
-    font-weight: bold;
-    color: #4d4d4d;
+  font-weight: bold;
+  color: #4d4d4d;
 }
