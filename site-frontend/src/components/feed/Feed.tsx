@@ -1,79 +1,77 @@
-import React, {CSSProperties} from 'react';
-import './Feed.css'
+import React, { useEffect, useState } from 'react';
 import Linkify from 'react-linkify';
+
+import './Feed.css';
+
 const nl2br = require('react-nl2br');
 
+type nl2brResult = Array<string | React.ReactNode>;
+
 type Item = {
-    num: string;
-    title: string;
-    content: string;
-    link: string;
-    image: string;
-    duration: string;
-}
+  num: string;
+  title: string;
+  content: string;
+  link: string;
+  image: string;
+  duration: string;
+};
 
-type State = {
-    items: Item[],
-    loading: boolean,
-    error: boolean,
-}
+export function Feed() {
+  const [items, setItems] = useState<Item[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-class Feed extends React.Component {
+  useEffect(() => {
+    fetch('https://api.znprod.io/api/feed')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setItems(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
 
-    state:State = {
-        items: [] as Item[],
-        loading: true,
-        error: false
-    }
+  return (
+    <div className="Feed">
+      {loading && <div>Loading...</div>}
 
-    componentDidMount () {
-        // this.setState({
-        //     items: [
-        //         {num: "099", title: 'Lorem ipsum one two three Lorem ipsum one two three', link: 'http://ya.ru/'},
-        //         {num: "101", title: ' ipsum one two three Lorem ipsum one two three Lorem', link: 'http://ya.ru/'},
-        //         ],
-        //     loading: false,
-        // })
-        fetch( 'https://api.znprod.io/api/feed')
-            .then(response => response.json())
-            .then(response =>  this.setState({
-                items: response,
-                loading: false
-            }))
-            .catch(error => this.setState({
-                loading: false,
-                error: true
-            }));
-    }
+      {!loading &&
+        !error &&
+        items.map((item) => {
+          const styles = {
+            backgroundImage: "url('" + item.image + "')",
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '485px',
+            backgroundPositionY: '40px',
+          };
 
-    render () {
-        const { items, loading, error } = this.state;
-        return (
-            <div className="Feed">
-                {loading && <div>Loading...</div>}
-                {!loading && !error &&
-                items.map(item => {
-
-                    const styles = {
-                            backgroundImage: "url('" + item.image + "')",
-                            backgroundRepeat: "no-repeat",
-                            backgroundSize: "485px",
-                            backgroundPositionY: "40px",
-                        } as React.CSSProperties;
-
-                    return <div className="episode" style={styles}>
-                        <div className="episode-title" key={item.title}>
-                            <a href={item.link} className="label"><span className="title-num">#{item.num} </span>{item.title}</a>
-                        </div>
-                        <div className="num">{item.num}</div>
-                        <div className="item-content"><Linkify>{nl2br(item.content)}</Linkify></div>
-                    </div>
-                })
-                }
-                {error && <div>Error loading feed</div>}
+          return (
+            <div key={item.num} className="episode" style={styles}>
+              <div className="episode-title" key={item.title}>
+                <a href={item.link} className="label">
+                  <span className="title-num">#{item.num} </span>
+                  {item.title}
+                </a>
+              </div>
+              <div className="num">{item.num}</div>
+              <div className="item-content">
+                <Linkify>
+                  {(nl2br(item.content) as nl2brResult).map(
+                    (timeCode, index) => (
+                      <React.Fragment key={index}>{timeCode}</React.Fragment>
+                    ),
+                  )}
+                </Linkify>
+              </div>
             </div>
-        );
-    }
-}
+          );
+        })}
 
-export default Feed;
+      {error && <div>Error loading feed</div>}
+    </div>
+  );
+}
