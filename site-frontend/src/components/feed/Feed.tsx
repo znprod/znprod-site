@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Linkify from 'react-linkify';
 
+import getEpisodesFeed from '../../api/getEpisodesFeed';
+
 import './Feed.css';
 
 const nl2br = require('react-nl2br');
@@ -21,18 +23,14 @@ export function Feed() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  const episodesLoadingError = () => setError(true);
+  const episodesLoadingAttemptDone = () => setLoading(false);
+
   useEffect(() => {
-    fetch('https://api.znprod.io/api/feed')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setItems(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(true);
-        setLoading(false);
-      });
+    getEpisodesFeed()
+      .then(setItems)
+      .catch(episodesLoadingError)
+      .finally(episodesLoadingAttemptDone);
   }, []);
 
   return (
