@@ -1,81 +1,108 @@
-@media screen and (min-width: 800px) {
-  .Feed .episode-title {
-    background: url('../../images/plashka.png') no-repeat;
+.Feed .episode {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+  .Feed .episode .episode-title-with-cover {
     width: 517px;
-    height: 54px;
-    padding-top: 42px;
-
-    font-weight: bold;
-    font-size: 30px;
-    display: block;
-  }
-
-  .Feed .episode-title .label {
-    display: block;
-    color: #4d4d4d;
-    width: 375px;
-    padding-left: 24px;
-    padding-bottom: 24px;
-    padding-right: 86px;
-    background-color: #ee7003;
-    text-decoration: none;
-  }
-
-  .Feed .episode {
     position: relative;
-    min-height: 500px;
+  }
+    .Feed .episode .episode-title-badge {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 96px;
+      background: url('../../images/plashka.png') no-repeat;
+    }
+    .Feed .episode .episode-title-link-and-cover-box {
+      position: relative;
+      z-index: 2;
+      margin-top: -60px;
+      width: 485px;
+    }
+      .Feed .episode .episode-title-link {
+        display: flex;
+        text-decoration: none;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        justify-content: space-between;
+        padding-left: 24px;
+        padding-bottom: 24px;
+        background-color: #ee7003;
+        color: #4d4d4d;
+      }
+        .Feed .episode .episode-title-text {
+          font-weight: bold;
+          font-size: 30px;
+          padding-right: 10px;
+        }
+        .Feed .episode .episode-title-num {
+          font-size: 48px;
+          font-weight: bold;
+        }
+          .Feed .episode .episode-title-num-marker {
+            display: none;
+          }
+
+    .Feed .episode .episode-cover {
+      width: 100%;
+    }
+      .Feed .episode .episode-cover img {
+        width: 100%;
+      }
+
+  .Feed .episode .episode-content {
+    width: calc(100% - 517px);
+    box-sizing: border-box;
+    padding: 85px 0 20px 20px;
+    color: #4d4d4d;
     word-wrap: break-word;
   }
 
-  .Feed .episode .item-content {
-    padding-left: 530px;
-    padding-bottom: 20px;
-    color: #4d4d4d;
-    position: relative;
-    top: -10px;
+@media screen and (max-width: 1200px) {
+  .Feed {
+    padding-top: 15px;
   }
 
-  .Feed .num {
-    position: absolute;
-    left: 406px;
-    top: 38px;
-    font-size: 48px;
-    color: #4d4d4d;
-    font-weight: bold;
+  .Feed .episode .episode-title-with-cover {
+    width: 100%;
   }
+    .Feed .episode .episode-title-link-and-cover-box {
+      margin-top: 0;
+      width: 100%;
+    }
+      .Feed .episode .episode-title-badge {
+        display: none;
+      }
+      .Feed .episode .episode-title-link {
+        display: block;
+        padding: 10px;
+        background-color: #e2e2e2;
+        border-radius: 4px;
+        font-size: 22px;
+      }
+        .Feed .episode .episode-title-text {
+          font-weight: normal;
+          padding: 0;
+          font-size: inherit;
+        }
+        .Feed .episode .episode-title-num {
+          padding-right: 10px;
+          font-weight: 700;
+          font-size: inherit;
+        }
+          .Feed .episode .episode-title-num-marker {
+            display: inline;
+          }
 
-  .Feed .title-num {
+    .Feed .episode .episode-cover {
+      display: none;
+    }
+
+  .Feed .episode .episode-content {
     display: none;
   }
-}
-
-@media screen and (max-width: 800px) {
-  .Feed .episode .item-content {
-    display: none;
-  }
-
-  .Feed .episode {
-    background: none !important;
-    margin-bottom: 23px;
-    padding-bottom: 0;
-  }
-
-  .Feed .episode .num {
-    display: none;
-  }
-
-  .Feed .episode-title .label {
-    margin-top: 0.5em;
-    display: block;
-    background-color: #e2e2e2;
-    padding: 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #4d4d4d;
-  }
-}
-
-.title-num {
-  font-weight: bold;
-  color: #4d4d4d;
 }

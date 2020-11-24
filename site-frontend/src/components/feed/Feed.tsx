@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+
 import Linkify from 'react-linkify';
+import nl2br from 'react-nl2br';
 
 import getEpisodesFeed from '../../api/getEpisodesFeed';
 
 import './Feed.css';
-
-const nl2br = require('react-nl2br');
 
 type nl2brResult = Array<string | React.ReactNode>;
 
@@ -34,29 +34,31 @@ export function Feed() {
   }, []);
 
   return (
-    <div className="Feed">
+    <section className="Feed">
       {loading && <div>Loading...</div>}
 
       {!loading &&
         !error &&
         items.map((item) => {
-          const styles = {
-            backgroundImage: "url('" + item.image + "')",
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '485px',
-            backgroundPositionY: '40px',
-          };
 
           return (
-            <div key={item.num} className="episode" style={styles}>
-              <div className="episode-title" key={item.title}>
-                <a href={item.link} className="label">
-                  <span className="title-num">#{item.num} </span>
-                  {item.title}
-                </a>
-              </div>
-              <div className="num">{item.num}</div>
-              <div className="item-content">
+            <div key={item.num} className="episode">
+              <section className="episode-title-with-cover">
+                <div className="episode-title-badge"></div>
+                <div className="episode-title-link-and-cover-box">
+                  <a href={item.link} className="episode-title-link">
+                    <span className="episode-title-num">
+                      <span className="episode-title-num-marker">#</span>
+                      <span className="episode-title-num-val">{item.num}</span>
+                    </span>
+                    <span className="episode-title-text">{item.title}</span>
+                  </a>
+                  <div className="episode-cover">
+                    <img src={item.image} />
+                  </div>  
+                </div>
+              </section>
+              <section className="episode-content">
                 <Linkify>
                   {(nl2br(item.content) as nl2brResult).map(
                     (timeCode, index) => (
@@ -64,12 +66,12 @@ export function Feed() {
                     ),
                   )}
                 </Linkify>
-              </div>
+              </section>
             </div>
           );
         })}
 
       {error && <div>Error loading feed</div>}
-    </div>
+    </section>
   );
 }
