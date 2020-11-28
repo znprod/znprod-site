@@ -54,7 +54,7 @@ export function Feed() {
                     <span className="episode-title-text">{item.title}</span>
                   </a>
                   <div className="episode-cover">
-                    <img src={item.image} />
+                    <img alt={item.title} src={item.image} />
                   </div>  
                 </div>
               </section>

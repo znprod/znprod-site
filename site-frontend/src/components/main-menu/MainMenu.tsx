@@ -37,10 +37,10 @@ export function MainMenu() {
   }, []);
 
   const links = [
-    { to: '/', text: 'Выпуски' },
+    { to: '/', text: 'О подкасте' },
     { to: '/partnership', text: 'Партнерство' },
     { to: '/subscribe', text: 'Подписаться' },
-    { to: '/about', text: 'О подкасте' },
+    { to: '/episodes', text: 'Выпуски' },
   ];
 
   return (

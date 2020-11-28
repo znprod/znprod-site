@@ -1,10 +1,25 @@
 import React from 'react';
 import PageHeader from './partials/PageHeader';
 
+type LinkData = {
+  link: string,
+  title: string,
+}
+
+interface ExternalWebPlatform  {
+  audio: {
+    [key: string]: LinkData
+  },
+  socials: {
+    [key: string]: LinkData
+  },
+}
+
+
 export default function SubscribePage() {
   const title = 'Подписаться';
 
-  const externalWebPlatforms = {
+  const externalWebPlatforms: ExternalWebPlatform = {
     audio: {
       applePodcasts: {
         link: 'https://podcasts.apple.com/ru/podcast/%D1%86%D0%B8%D0%BD%D0%BA%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BF%D1%80%D0%BE%D0%B4-18/id1458311254?mt=2',
@@ -41,9 +56,9 @@ export default function SubscribePage() {
 
   const {youtube} = externalWebPlatforms.socials;
   
-  const getExternalLink = ({link, title}) => <a href={link} target="_blank">{title}</a>;
-  const getAudioLink = (webPlatform) => getExternalLink(externalWebPlatforms.audio[webPlatform]);
-  const getSocialLink = (webPlatform) => getExternalLink(externalWebPlatforms.socials[webPlatform]);
+  const getExternalLink = ({link, title}: LinkData) => <a href={link} target="_blank" rel="noopener noreferrer">{title}</a>;
+  const getAudioLink = (webPlatform: string) => getExternalLink(externalWebPlatforms.audio[webPlatform]);
+  const getSocialLink = (webPlatform: string) => getExternalLink(externalWebPlatforms.socials[webPlatform]);
 
   return (
     <div className="content">

@@ -8,7 +8,7 @@ import logo from './images/logo.png';
 
 import './App.css';
 
-import IndexPage from './pages/IndexPage';
+import EpisodesPage from './pages/EpisodesPage';
 import AboutPage from './pages/AboutPage';
 import PartnershipPage from './pages/PartnershipPage';
 import SubscribePage from './pages/SubscribePage';
@@ -25,10 +25,11 @@ export function App() {
 
         <MainMenu />
 
-        <Route path="/" exact component={IndexPage} />
+        <Route path="/" exact component={AboutPage} />
+        <Route path="/about" component={AboutPage} />
         <Route path="/partnership" component={PartnershipPage} />
         <Route path="/subscribe" component={SubscribePage} />
-        <Route path="/about" component={AboutPage} />
+        <Route path="/episodes" component={EpisodesPage} />
       </div>
     </Router>
   );

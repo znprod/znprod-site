@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHeader from './partials/PageHeader';
 
-export default function Partnership() {
+export default function PartnershipPage() {
   const title = 'Партнерство';
   
   return (
