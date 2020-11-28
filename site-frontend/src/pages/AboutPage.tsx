@@ -29,7 +29,7 @@ export default function AboutPage() {
           <div>
               <p>Дима Пацура говорит, что PHP отстой, и надо пользоваться NodeJS:</p>
               <p>
-                  <iframe title="PHP отстой, и надо пользоваться NodeJS" width="560" height="315" src="https://www.youtube.com/embed/aVVTNg_mI7U?start=7495"
+                  <iframe title="PHP отстой, и надо пользоваться NodeJS" width="560" height="315" src="https://www.youtube.com/embed/aVVTNg_mI7U"
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen></iframe>
