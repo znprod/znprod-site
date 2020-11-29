@@ -25,6 +25,10 @@ export default function SubscribePage() {
         link: 'https://podcasts.apple.com/ru/podcast/%D1%86%D0%B8%D0%BD%D0%BA%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BF%D1%80%D0%BE%D0%B4-18/id1458311254?mt=2',
         title: 'Apple Podcasts',
       },
+      podcastAddict: {
+        link: 'https://play.google.com/store/apps/details?id=com.bambuna.podcastaddict&hl=ru&gl=US',
+        title: 'Podcast Addict',
+      },
       soundCloud: {
         link: 'https://soundcloud.com/znprod',
         title: 'SoundCloud',
@@ -69,7 +73,11 @@ export default function SubscribePage() {
       </p>
       <p>
         Аудиоверсию можно найти в любой программе для прослушивания подкастов,
-        например {getAudioLink('applePodcasts')} или {getAudioLink('soundCloud')}
+        например {getAudioLink('applePodcasts')} или {getAudioLink('podcastAddict')} (Android). Очень много бесплатного софта.
+        Просто устанавливаете, вбиваете в поиске "Цинковый прод" и подписываетесь.
+      </p>
+      <p>
+        Или можно слушать прямо на сайте {getAudioLink('soundCloud')}
       </p>
       Также у нас есть {getSocialLink('tgChat')}, {getSocialLink('tgChanel')}, {getSocialLink('twitter')} и даже {getSocialLink('instagram')}
     </div>
