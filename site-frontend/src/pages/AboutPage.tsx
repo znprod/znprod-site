@@ -36,7 +36,7 @@ export default function AboutPage() {
               </p>
           </div>
 
-          <a href={"http://localhost:3000/subscribe"}>Подписывайтесь</a>, чтобы не пропустить свежие выпуски
+          <a href={"/subscribe"}>Подписывайтесь</a>, чтобы не пропустить свежие выпуски
 
       </p>
       <p>Постоянные ведущие подкаста:</p>
