@@ -26,6 +26,12 @@ a:hover {
   color: rgb(85, 26, 139);
 }
 
+
+.max-youtube  {
+  width: 100%;
+  max-width: 560px;
+}
+
 .youtube-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */

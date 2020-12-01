@@ -20,10 +20,12 @@ export default function AboutPage() {
           <div>
               <p>Дима Столяров объясняет, почему Кубернетес нужен вообще везде:</p>
               <p>
+                  <div className="max-youtube">
                   <div className="youtube-wrapper">
                   <iframe title="Дима Столяров объясняет, почему Кубернетес нужен вообще везде" width="560" height="315" src="https://www.youtube.com/embed/slE11sPm8fQ" frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen></iframe>
+                  </div>
                   </div>
               </p>
           </div>
@@ -31,11 +33,13 @@ export default function AboutPage() {
           <div>
               <p>Дима Пацура говорит, что PHP отстой, и надо пользоваться NodeJS:</p>
               <p>
+                  <div className="max-youtube">
                   <div className="youtube-wrapper">
                   <iframe title="PHP отстой, и надо пользоваться NodeJS" width="560" height="315" src="https://www.youtube.com/embed/aVVTNg_mI7U"
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen></iframe>
+                  </div>
                   </div>
               </p>
           </div>
