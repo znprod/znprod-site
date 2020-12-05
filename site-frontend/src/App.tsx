@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { MainMenu } from './components/main-menu';
-import Heroes from './components/heroes/Heroes';
+import { ShowMakersFaces } from './components/show-makers-faces';
 
 import logo from './images/logo.png';
 
@@ -21,7 +21,7 @@ export function App() {
           <img className="logo" src={logo} alt='Подкаст "Цинковый прод"' />
         </Link>
 
-        <Heroes />
+        <ShowMakersFaces />
 
         <MainMenu />
 
