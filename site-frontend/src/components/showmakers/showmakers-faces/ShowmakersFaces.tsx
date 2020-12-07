@@ -1,8 +1,8 @@
 import React from 'react';
-import mordy from '../../images/mordy.png';
-import './ShowMakersFaces.css';
+import mordy from '../../../images/mordy.png';
+import './ShowmakersFaces.css';
 
-export function ShowMakersFaces() {
+export function ShowmakersFaces() {
   return (
     <div className="mordy">
       {<img src={mordy} alt="Морды" />}
