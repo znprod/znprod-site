@@ -1,71 +1,66 @@
 import React from 'react';
 import PageHeader from './partials/PageHeader';
 
+import { LinkData } from '../types/LinkData';
+
+import ShowmakersList from '../components/showmakers/showmakers-list/ShowmakersList';
+import IframeVideosList from '../components/iframe-video/IframeVideosList';
+import ExternalWebPlatformLink from '../components/ExternalWebPlatformLink';
+
 export default function AboutPage() {
   const title = 'О подкасте';
+
+  const watchOnYoutubeLink = <ExternalWebPlatformLink 
+                              webPlatform='youtube' 
+                              linkText='смотреть на youtube' 
+                              linkQuery='view=0&sort=p&flow=grid&view_as=subscriber'
+                            />;
+  const soundCloudLink = <ExternalWebPlatformLink webPlatform='soundCloud' />;
+
+  const videoExamples: LinkData[] = [
+    {
+      title: "Дима Столяров объясняет, почему Кубернетес нужен вообще везде",
+      link: "https://www.youtube.com/embed/slE11sPm8fQ"
+    },
+    {
+      title: "Дима Пацура говорит, что PHP отстой, и надо пользоваться NodeJS",
+      link: "https://www.youtube.com/embed/aVVTNg_mI7U",
+    },
+  ];
 
   return (
     <div className="content">
       <PageHeader title={title} />
 
-      <p>
-          <p>Подкаст "Цинковый прод" - это подкаст про разработку, тимлидство и прочее IT, и
-          имеет развлекательно-познавательный формат. Чаще всего наши выпуски напоминают разговоры в офисе за обедом или в курилке. Мат-перемат, ржачка, но и польза тоже есть.
-          Бывают, в прочем, и серьёзные выпуски, где мы зовём именитого гостя и допрашиваем.</p>
+      <section>
+        <p>
+          Подкаст "Цинковый прод" - это подкаст про разработку, тимлидство и прочее IT, и имеет развлекательно-познавательный формат. Чаще всего наши выпуски напоминают разговоры в офисе за обедом или в курилке. Мат-перемат, ржачка, но и польза тоже есть.
+          Бывают, в прочем, и серьёзные выпуски, где мы зовём именитого гостя и допрашиваем.
+        </p>
 
-          <p>Нас можно слушать как в аудиоформате в любой программе для прослушивания подкастов или на сайте <a href={"https://soundcloud.com/znprod"}>SoundCloud</a>,
-              так и <a href={"https://www.youtube.com/channel/UC6cTShKx3lJWw-EzSr_ZAfw/videos?view=0&sort=p&flow=grid&view_as=subscriber"}>смотреть на youtube</a>. Можно участвовать в прямых эфирах по четвергам в 20:00 МСК</p>
+        <p>
+          Нас можно слушать как в аудиоформате в любой программе для прослушивания подкастов или на сайте {soundCloudLink}, так и {watchOnYoutubeLink}. Можно участвовать в прямых эфирах по четвергам в 20:00 МСК
+        </p>
 
-          <p>Вот примеры наших популярных выпусков:</p>
-          <div>
-              <p>Дима Столяров объясняет, почему Кубернетес нужен вообще везде:</p>
-              <p>
-                  <div className="max-youtube">
-                  <div className="youtube-wrapper">
-                  <iframe title="Дима Столяров объясняет, почему Кубернетес нужен вообще везде" width="560" height="315" src="https://www.youtube.com/embed/slE11sPm8fQ" frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen></iframe>
-                  </div>
-                  </div>
-              </p>
-          </div>
+        <h3>Вот примеры наших популярных выпусков:</h3>
 
-          <div>
-              <p>Дима Пацура говорит, что PHP отстой, и надо пользоваться NodeJS:</p>
-              <p>
-                  <div className="max-youtube">
-                  <div className="youtube-wrapper">
-                  <iframe title="PHP отстой, и надо пользоваться NodeJS" width="560" height="315" src="https://www.youtube.com/embed/aVVTNg_mI7U"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen></iframe>
-                  </div>
-                  </div>
-              </p>
-          </div>
+        <IframeVideosList videos={videoExamples} />
 
+        <p>
           <a href={"/subscribe"}>Подписывайтесь</a>, чтобы не пропустить свежие выпуски
+        </p>
 
-      </p>
-      <p>Постоянные ведущие подкаста:</p>
+      </section>
       
-      <HeroesList />
+      <h3>Постоянные ведущие подкаста:</h3>
+
+      <ShowmakersList />
     </div>
   );
 }
 
-function HeroesList() {
-  const heros = [
-    'Антон Околелов',
-    'Никита Васильченко',
-    'Олег Грицак',
-  ]
-  
-  const getListItem = (hero: string, idx: number) => <li key={idx}>{hero}</li>
 
-  return (
-    <ul>
-      {heros.map(getListItem) }
-    </ul>
-  )
-}
+
+
+
+

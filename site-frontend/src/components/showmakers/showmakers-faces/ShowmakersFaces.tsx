@@ -1,7 +1,8 @@
 import React from 'react';
-import mordy from '../../images/mordy.png';
+import mordy from '../../../images/mordy.png';
+import './ShowmakersFaces.css';
 
-export default function Heroes() {
+export function ShowmakersFaces() {
   return (
     <div className="mordy">
       {<img src={mordy} alt="Морды" />}

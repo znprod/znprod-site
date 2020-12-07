@@ -1,0 +1,49 @@
+.App .mordy {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-bottom: 0;
+}
+
+.App .mordy img {
+  display: block;
+  width: 70%;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.App .mordy .line {
+  width: 100%;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 800px) {
+  .App .mordy {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 0;
+  }
+
+  .App .mordy img {
+    display: block;
+    width: 92%;
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .App .mordy .line {
+    width: 100%;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid black;
+  }
+}
