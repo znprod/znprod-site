@@ -1,0 +1,1 @@
+export {getEpisodesFeed} from './getEpisodesFeed';

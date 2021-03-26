@@ -1,0 +1,1 @@
+export const episodesFeedEndpoint = 'https://api.znprod.io/api/feed';
