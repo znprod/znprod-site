@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
+import {FeedEpisode} from '../../types/FeedEpisode';
+
 import Linkify from 'react-linkify';
 import nl2br from 'react-nl2br';
 
-import getEpisodesFeed from '../../api/getEpisodesFeed';
+import {getEpisodesFeed} from '../../api';
+import ExternalWebPlatformLink from '../ExternalWebPlatformLink';
 
 import './Feed.css';
 
 type nl2brResult = Array<string | React.ReactNode>;
 
-type Item = {
-  num: string;
-  title: string;
-  content: string;
-  link: string;
-  image: string;
-  duration: string;
-};
-
 export function Feed() {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<FeedEpisode[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -35,7 +29,7 @@ export function Feed() {
 
   return (
     <section className="Feed">
-      {loading && <div>Loading...</div>}
+      {loading && <div>Загрузка...</div>}
 
       {!loading &&
         !error &&
@@ -69,9 +63,23 @@ export function Feed() {
               </section>
             </div>
           );
-        })}
+        })
+      }
 
-      {error && <div>Error loading feed</div>}
+      {error && <FeedLoadingErrorDisclaimer />}
     </section>
+  );
+}
+
+function FeedLoadingErrorDisclaimer(){
+  return (
+    <div className="FeedLoadingErrorDisclaimer">
+      <p className="FeedLoadingErrorDisclaimerTitle">
+        Произошла ошибка при загрузке списка эпизодов :( 
+      </p>
+      <p>
+        все выпуски доступны на <ExternalWebPlatformLink webPlatform='youtube' />
+      </p>
+    </div>
   );
 }
